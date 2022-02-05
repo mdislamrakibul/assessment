@@ -1,0 +1,28 @@
+<div fxLayout="row wrap" *ngIf="trigger" style="margin-bottom:20px">
+  <div fxFlex.gt-lg="33" fxFlex.gt-md="33" fxFlex.gt-xs="100"></div>
+  <div fxFlex.gt-lg="34" fxFlex.gt-md="34" fxFlex.gt-xs="100">
+    <button (click)="prev()">
+      < </button> Page {{pageCount}} <button (click)="next()"> >
+    </button> </div>
+  <div fxFlex.gt-lg="33" fxFlex.gt-md="33" fxFlex.gt-xs="100">
+  </div>
+</div>
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="25" fxFlex.gt-md="25" fxFlex.gt-xs="100" *ngFor="let item of data">
+    <mat-card style="margin: 0px 10px 10px 0px;">
+      <mat-card-title style="display: flex; align-items: center; justify-content: space-between;">
+        {{item.name}}
+
+        <button (click)="ADD(item._id)" *ngIf="!check(item._id)" matTooltip="Add Favorite">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button (click)="REMOVE(item._id)" *ngIf="check(item._id)" matTooltip="Remove Favorite">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </mat-card-title>
+      <mat-card-content>
+        {{item.bio}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
