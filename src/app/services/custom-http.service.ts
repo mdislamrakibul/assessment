@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomHttpService {
 
-  api = environment.api;
+  api = 'http://api.quotable.io/';
   constructor(
     private _http: HttpClient,
   ) {
