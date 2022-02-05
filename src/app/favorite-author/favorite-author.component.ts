@@ -19,7 +19,6 @@ export class FavoriteAuthorComponent implements OnInit {
   }
 
   reloadType($event: any) {
-    console.log($event);
     this.ngOnInit()
   }
 

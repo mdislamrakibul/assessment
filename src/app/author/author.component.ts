@@ -16,13 +16,11 @@ export class AuthorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('rendering');
 
     this.getAuthor()
   }
 
   getAuthor() {
-    console.log(this.pageCount);
 
     this.customHttp._getAuthor(this.pageCount).subscribe(
       (res) => {
@@ -47,7 +45,6 @@ export class AuthorComponent implements OnInit {
 
   }
   reloadType($event: any) {
-    console.log($event);
     this.ngOnInit()
   }
 }

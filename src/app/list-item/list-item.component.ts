@@ -27,8 +27,6 @@ export class ListItemComponent implements OnInit {
   }
   ngOnInit(): void {
     this.checkList = this.localStorage.getItem('favorite')
-    console.log(this.checkList);
-
   }
 
   ADD(_id: string) {
@@ -55,7 +53,6 @@ export class ListItemComponent implements OnInit {
   }
 
   REMOVE(_id: string) {
-    // console.log(_id);
     this.favItemList = this.localStorage.getItem('favorite')
     let remainIndex = this.favItemList.filter((item: any) => item._id !== _id);
     this.localStorage.setItem('favorite', remainIndex);
@@ -76,9 +73,11 @@ export class ListItemComponent implements OnInit {
     this.pageEmit.emit(this.pageCount)
   }
   check(i: string) {
-    let data = this.checkList.filter((item: any) => item._id === i);
-    if (data && data.length > 0) {
-      return true
+    if (this.checkList && this.checkList.length > 0) {
+      let data = this.checkList.filter((item: any) => item._id === i);
+      if (data && data.length > 0) {
+        return true
+      }
     }
     return false
   }
